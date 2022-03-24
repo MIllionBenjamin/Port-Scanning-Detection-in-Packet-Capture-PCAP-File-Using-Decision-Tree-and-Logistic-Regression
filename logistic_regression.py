@@ -32,3 +32,15 @@ clf.fit(train_X, train_Y)
 print(clf.score(test_X, test_Y))
 print("Total Train Time:", time.time() - train_begin)
 print(clf.get_params())
+
+
+print(clf.coef_)
+print(clf.intercept_)
+
+
+coef_datafram = pd.DataFrame({
+    "Feature": features.columns, 
+    "Importance": clf.coef_[0]
+})
+
+coef_datafram.to_csv("logistic_regression_coef.csv", index=False)
