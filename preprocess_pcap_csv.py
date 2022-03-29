@@ -129,12 +129,12 @@ def hexadecimal_to_decimal(x: str):
         return int(str(x), 16)
     return x
 pcap_detail_df = pcap_detail_df.applymap(hexadecimal_to_decimal)
-
+'''
 # add label
 pcap_detail_df["label"] = pcap_detail_df.apply(lambda x: 1 if x["ip.src"] == "172.16.0.1" else 0, axis=1)
 
 print(pcap_detail_df.groupby('label').size())
-
+'''
 print(pcap_detail_df.head(5))
 
 pcap_detail_df.to_csv("PortScan_Begin_to_End_tshark_deltail_with_label.csv", index=False)
